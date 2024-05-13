@@ -48,7 +48,7 @@ class Calculator:
                 bg="orange",
                 fg="white",
                 font=("Arial", 15, "bold"),
-                command=self.button_click,
+                command=lambda text = button_text: self.button_click(text),
             )
             button.grid(column=i % 4, row=i // 4 + 1)
 
