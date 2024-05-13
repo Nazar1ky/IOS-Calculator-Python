@@ -19,7 +19,15 @@ class Calculator:
         buttons_text = ["AC", "+/-", "%", "/", "1", "2", "3", "*", "4", "5", "6", "-", "7", "8", "9", "+", "0", ".", "="]
 
         for i, button_text in enumerate(buttons_text):
-            button = tk.Button(text=button_text, width = 6, height=3, bg="orange", fg = "white", font=('Arial', 15, 'bold'), command=lambda text = button_text: self.button_click(text))
+            button = tk.Button(
+                text=button_text,
+                width=6,
+                height=3,
+                bg="orange",
+                fg="white",
+                font=("Arial", 15, "bold"),
+                command=self.button_click,
+            )
             button.grid(column = i % 4, row = i // 4 + 1)
 
     def button_click(self, button_text):
