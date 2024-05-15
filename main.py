@@ -1,6 +1,7 @@
-import ast
 import tkinter as tk
 from decimal import Decimal
+
+from src.utils import safe_eval
 
 
 class Calculator:
@@ -68,7 +69,7 @@ class Calculator:
                 self.result["text"] = "-" + self.result["text"]
 
         if button_text == "%":
-            self.result["text"] = ast.literal_eval(f"{self.result['text']} / 100")
+            self.result["text"] = safe_eval(f"{self.result['text']} / 100")
 
         if button_text in ("+", "-", "*", "/"):
             self.operator = button_text
@@ -81,7 +82,7 @@ class Calculator:
         if button_text == "=" and self.operator:
             try:
                 self.result["text"] = str(
-                    ast.literal_eval(
+                    safe_eval(
                         f"{self.first_number} {self.operator} {self.last_number}",
                     ),
                 )
